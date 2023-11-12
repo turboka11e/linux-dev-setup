@@ -1,0 +1,20 @@
+---
+- name: Install pip
+  package:
+    name: pip
+    state: present
+  become: true
+  become_user: root
+
+- name: Install pipenv
+  pip:
+    name: pipenv
+    extra_args: --user
+
+- name: Set up bash environment for pipenv
+  lineinfile:
+    path: ~/.bashrc
+    line: "{{ item }}"
+  with_items:
+    - export PATH="$PATH:~/.local/bin"
+    - eval "$(_PIPENV_COMPLETE=bash_source pipenv)"

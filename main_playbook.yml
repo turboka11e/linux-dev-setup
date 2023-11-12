@@ -1,0 +1,17 @@
+---
+- name: Install pyenv and pipenv system-wide
+  hosts: docker_containers
+  become: true
+  gather_facts: true
+
+  vars_prompt:
+    - name: user
+      prompt: "Enter username"
+      private: no
+
+  roles:
+    - user
+    - role: dev-essentials
+      become_user: "{{ user }}"
+    - role: dev-tools
+      become_user: "{{ user }}"

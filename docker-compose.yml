@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  ubuntu:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: ubuntu
+    stdin_open: true
+    tty: true
