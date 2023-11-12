@@ -1,2 +1,2 @@
-[docker_containers]
+[host]
 ubuntu ansible_connection=docker

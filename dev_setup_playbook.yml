@@ -1,6 +1,6 @@
 ---
 - name: Install pyenv and pipenv system-wide
-  hosts: docker_containers
+  hosts: host
   become: true
   gather_facts: true
 
@@ -10,7 +10,6 @@
       private: no
 
   roles:
-    - user
     - role: dev-essentials
       become_user: "{{ user }}"
     - role: dev-tools

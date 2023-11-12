@@ -1,0 +1,13 @@
+---
+- name: Create new user
+  hosts: host
+  become: true
+  gather_facts: true
+
+  vars_prompt:
+    - name: user
+      prompt: "Enter username"
+      private: no
+
+  roles:
+    - role: user

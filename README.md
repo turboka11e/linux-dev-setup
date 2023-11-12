@@ -37,9 +37,10 @@ Create a new Linux development environment, tailored to your needs. This setup i
 2. **Configure Ubuntu Instance with Ansible:**
    - Run the Ansible playbook to set up the Ubuntu instance within the Docker container:
      ```bash
-     ansible-playbook -i local main_playbook.yml
+     ansible-playbook -i local-docker create_user_playbook.yml
+     ansible-playbook -i local-docker dev_setup_playbook.yml
      ```
-   - This playbook creates a new user, installs essential package dependencies, Pyenv, and Pipenv.
+   - These playbooks create a new user, installs essential package dependencies, Pyenv, and Pipenv.
 
 3. **Start Developing:**
    - Once the setup is complete, your development environment is ready.
