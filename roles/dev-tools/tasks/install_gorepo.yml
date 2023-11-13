@@ -1,0 +1,21 @@
+---
+- name: check if gorepo is installed
+  shell: command -v gorepo
+  register: gorepo_exists
+  ignore_errors: yes
+
+- name: create repos directory
+  ansible.builtin.file:
+    path: ~/repos
+    state: directory
+    mode: '0755'
+
+- name: clone gorepo
+  when: gorepo_exists is failed
+  git:
+    repo: https://github.com/turboka11e/gorepo.git
+    dest: ~/repos/gorepo
+
+- name: install gorepo
+  when: gorepo_exists is failed
+  shell: ~/repos/gorepo/install.sh -y
