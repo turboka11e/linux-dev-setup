@@ -1,6 +1,7 @@
 ---
 - name: Install pyenv and pipenv system-wide
   hosts: host
+  become: true
   gather_facts: true
 
   roles:
