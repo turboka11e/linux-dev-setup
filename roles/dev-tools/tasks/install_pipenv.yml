@@ -3,6 +3,8 @@
   apt:
     name: pip
     state: present
+  become: true
+  become_user: root
 
 - name: Install pipenv
   pip:
@@ -14,5 +16,5 @@
     path: ~/.bashrc
     line: "{{ item }}"
   with_items:
-    - export PATH="$PATH:~/.local/bin"
+    - export PATH="$PATH:$HOME/.local/bin"
     - eval "$(_PIPENV_COMPLETE=bash_source pipenv)"

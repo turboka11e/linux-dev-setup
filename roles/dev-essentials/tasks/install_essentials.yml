@@ -1,17 +1,18 @@
 ---
 - name: Update package cache and install dependencies
   apt:
-    name: "{{ item }}"
+    name:
+      - git
+      - curl
+      - vim
+      - build-essential
+      - zlib1g-dev
+      - libffi-dev
+      - libssl-dev
+      - libbz2-dev
+      - libreadline-dev
+      - libsqlite3-dev
+      - liblzma-dev
     state: present
-  with_items:
-    - git
-    - curl
-    - vim
-    - build-essential
-    - zlib1g-dev
-    - libffi-dev
-    - libssl-dev
-    - libbz2-dev
-    - libreadline-dev
-    - libsqlite3-dev
-    - liblzma-dev
+  become: true
+  become_user: root
