@@ -4,7 +4,7 @@
     name: pip
     state: present
   become: true
-  become_user: root
+  become_method: sudo
 
 - name: Install pipenv
   pip:

@@ -1,7 +1,6 @@
 ---
 - name: Create new user
   hosts: host
-  become: true
   gather_facts: true
 
   vars_prompt:
