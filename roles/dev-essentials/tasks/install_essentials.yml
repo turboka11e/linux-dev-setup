@@ -1,6 +1,6 @@
 ---
 - name: Update package cache and install dependencies
-  package:
+  apt:
     name: "{{ item }}"
     state: present
   with_items:
@@ -15,4 +15,3 @@
     - libreadline-dev
     - libsqlite3-dev
     - liblzma-dev
-  become_method: sudo

@@ -1,6 +1,6 @@
 ---
 - name: Install pip
-  package:
+  apt:
     name: pip
     state: present
   become: true
