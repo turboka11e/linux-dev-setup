@@ -27,6 +27,8 @@ Create a new Linux development environment, tailored to your needs. This setup i
 
 ## Setup
 
+### Try it out in a docker container
+
 1. **Create Docker Container:**
    - Use the following command to bring up the Docker container:
      ```bash
@@ -38,13 +40,25 @@ Create a new Linux development environment, tailored to your needs. This setup i
    - Run the Ansible playbook to set up the Ubuntu instance within the Docker container:
      ```bash
      ansible-playbook -i local-docker create_user_playbook.yml
-     ansible-playbook -i local-docker dev_setup_playbook.yml
+     >> Enter username: <username> # In this playbook the password of the user will be the <username>
+     ansible-playbook -i local-docker dev_setup_playbook.yml --become-user <username> --ask-become-pass
+     >> BECOME password: <username>
      ```
    - These playbooks create a new user, installs essential package dependencies, Pyenv, and Pipenv.
 
 3. **Start Developing:**
    - Once the setup is complete, your development environment is ready.
    - Access the container with `docker exec -it ubuntu bash` and start coding!
+
+### Execute it on your own local machine
+
+Beware that executing this will require sudo privilege.
+
+1. **Configure localhost with Ansible**
+   ```bash
+   ansible-playbook -i localhost dev_setup_playbook.yml --become-user <your-local-username> --ask-become-pass
+   >> BECOME password: <sudo-password>
+   ```
 
 ## Customization
 

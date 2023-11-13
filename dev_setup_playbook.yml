@@ -1,16 +1,8 @@
 ---
 - name: Install pyenv and pipenv system-wide
   hosts: host
-  become: true
   gather_facts: true
-
-  vars_prompt:
-    - name: user
-      prompt: "Enter username"
-      private: no
 
   roles:
     - role: dev-essentials
-      become_user: "{{ user }}"
     - role: dev-tools
-      become_user: "{{ user }}"
