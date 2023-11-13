@@ -60,6 +60,12 @@ Beware that executing this will require sudo privilege.
    >> BECOME password: <sudo-password>
    ```
 
+2. **Check configuration**
+   ```bash
+   pyenv --version
+   >> * system (set by /home/<youe-local-username>/.pyenv/version)
+   ```
+
 ## Customization
 
 Feel free to customize the Ansible playbook (`main_playbook.yml`) to match your specific development requirements. Adjust package dependencies, Python versions, or additional tools as needed.
