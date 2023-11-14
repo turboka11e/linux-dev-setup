@@ -5,6 +5,7 @@
       - git
       - curl
       - vim
+      - pip
       - bash-completion
       - build-essential
       - zlib1g-dev
