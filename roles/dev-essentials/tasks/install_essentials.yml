@@ -19,6 +19,11 @@
   become: true
   become_user: root
 
+- name: Install pip essentials
+  pip:
+    name: pexpect
+    extra_args: --user
+
 - name: check if cargo is installed
   shell: command -v cargo
   register: cargo_exists
@@ -34,4 +39,4 @@
 
 - name: install rust/cargo
   when: cargo_exists is failed
-  shell: /tmp/sh.rustup.rs
+  shell: /tmp/sh.rustup.rs -y
